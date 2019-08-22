@@ -21,12 +21,26 @@ var sizingSchema = new mongoose.Schema({
 
 var Sizing = mongoose.model('Sizing', sizingSchema);
 
+var questionSchema = new mongoose.Schema({
+  itemId: Number,
+  question: String,
+  answer: String,
+  asker: String,
+  dateAsked: Date,
+  helpfulCount: Number,
+  unhelpfulCount: Number,
+  targetTeamMember: Boolean
+})
+
+var Questions = mongoose.model('Questions', questionSchema);
+
 var itemDetailsSchema = new mongoose.Schema({
-  itemId: {type: Number, default: 0},
+  itemId: {type: Number, unique: true},
   fitAndStylePointOne: String,
   fitAndStylePointTwo: String,
   fitAndStylePointThree: String,
   fitAndStylePointFour: String,
+  fitAndStylePointFive: String,
   fitAndStyleBlurb: String,
   sizing: String,
   material: String,
@@ -43,46 +57,13 @@ var itemDetailsSchema = new mongoose.Schema({
   DPCI: Number,
   origin: String,
   recycledPolyester: Boolean,
+  fastShipping: Boolean,
+  estimatedShipDimensions: String,
+  estimatedShipWeight: String,
   type: {type: String, default: 'Men - Shirts'}
 });
 
 var ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
 
-var arrayToSeed = [];
-
-for (var i = 1; i <= 100; i++) {
-  arrayToSeed.push(new ItemDetails({
-    itemId: i,
-    fitAndStylePointOne: faker.lorem.sentence(),
-    fitAndStylePointTwo: faker.lorem.sentence(),
-    fitAndStylePointThree: faker.lorem.sentence(),
-    fitAndStylePointFour: faker.lorem.sentence(),
-    fitAndStyleBlurb: faker.lorem.paragraph(),
-    sizing: faker.random.word(),
-    material: faker.random.words(),
-    fit: faker.random.words(),
-    length: faker.random.words(),
-    features: faker.random.words(),
-    neckline: faker.random.word(),
-    itemStyle: faker.random.words(),
-    garmentCuffCutType: faker.random.words(),
-    garmentSleeveStyle: faker.random.words(),
-    careAndCleaning: faker.random.words(),
-    TCIN: faker.random.number(),
-    UPC: faker.random.number(),
-    DPCI: faker.random.number(),
-    origin: faker.random.word(),
-    recycledPolyester: faker.random.boolean(),
-    type: 'Men - Shirts'
-  }))
-}
-
-ItemDetails.insertMany(arrayToSeed)
-  .then(function(record) {
-    console.log('saving record!', record)
-    record.save()
-  })
-  .catch(function(err) {
-    console.log('there has been an error', err)
-  })
-
+module.exports.ItemDetails = ItemDetails;
+module.exports.Questions = Questions;
