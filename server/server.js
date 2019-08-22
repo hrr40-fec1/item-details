@@ -1,11 +1,15 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const db = require('../db/index.js')
+var express = require('express')
+var app = express()
+var port = 3000
+var db = require('../db/index.js')
 
 
 app.use(express.static('public'))
 
-app.get('/', (req, res) => res.send('Hello World!'))
+app.get('/', function(req, res){
+  res.send('Hello World!')
+})
 
-app.listen(port, () => console.log(`Item details service listening on port ${port}!`))
+app.listen(port, function(){
+  console.log('Item details service listening on port' + port + '!')
+});
