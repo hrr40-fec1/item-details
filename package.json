@@ -7,17 +7,13 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "nodemon server/server.js"
+    "start": "nodemon server/server.js",
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "express": "^4.17.1",
     "faker": "^4.1.0",
-    "mongoose": "^5.6.10",
-    "mongoose-auto-increment": "^5.0.1",
-    "mongoose-sequence": "^5.1.0"
-  },
-  "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor.git"
+    "mongoose": "^5.6.10"
   },
   "version": "1.0.0",
   "main": "server/server.js",
@@ -28,5 +24,13 @@
   "bugs": {
     "url": "https://github.com/hrr40-fec1/item-details/issues"
   },
-  "homepage": "https://github.com/hrr40-fec1/item-details#readme"
+  "homepage": "https://github.com/hrr40-fec1/item-details#readme",
+  "devDependencies": {
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.14.3",
+    "eslint-plugin-react-hooks": "^1.7.0"
+  }
 }
