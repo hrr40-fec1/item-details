@@ -13,3 +13,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`Item details service listening on port ${port}!`);
 });
+
