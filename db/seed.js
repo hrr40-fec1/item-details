@@ -1,48 +1,41 @@
-var db = require('./index.js')
-var faker = require('faker');
+const faker = require('faker');
+const { ItemDetails, Questions } = require('./index.js');
 
-//Below is for the Item Details model specifically.
-var ItemDetails = db.ItemDetails;
-
-//This clears the existing seeded database from the Item Details model.
-ItemDetails.remove({}, function(err, res) {
-  if(err) {
-    console.log('Error removing items', err)
-  } else {
-    console.log('Items removed')
+// // Below is for the Item Details model specifically.
+// This clears the existing seeded database from the Item Details model.
+ItemDetails.remove({}, (err) => {
+  if (err) {
+    console.log('Error removing items', err);
   }
 });
 
-//Not all of the items will include 5 bullet points, but I want to be able to accommodate up to 5. So, the below function adds that randomness into my model.
-var randomBulletPoints = function() {
-  var options = Math.floor(Math.random() * Math.floor(5))
-  var pointsToList = []
+// Not all of the items will include 5 bullet points, but I want to be able to
+// accommodate up to 5. So, the below function adds that randomness into my model.
+const randomBulletPoints = function () {
+  const options = faker.random.number({ min: 0, max: 4 });
+  const pointsToList = [null, null, null, null, null];
 
-  if(options === 0) {
-    pointsToList.push(null, null, null, null, null)
-  } else if(options === 1) {
-    pointsToList.push(faker.lorem.sentence(), null, null, null, null)
-  } else if(options === 2) {
-    pointsToList.push(faker.lorem.sentence(), faker.lorem.sentence(), null, null, null)
-  } else if(options === 3) {
-    pointsToList.push(faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence(), null, null)
-  } else if(options === 4) {
-    pointsToList.push(faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence(), null)
-  } else if(options === 5) {
-    pointsToList.push(faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence(), faker.lorem.sentence())
+  if (options === 0) {
+    return pointsToList;
+  }
+
+  let i = 0;
+  while (i <= options) {
+    pointsToList[i] = faker.lorem.sentence();
+    i += 1;
   }
   return pointsToList;
-}
+};
 
-//Below, I generate an array with data from Faker so that I have 100 random records to insert into my model.
-var arrayToSeed = [];
+// Below, I generate an array with data from Faker so that
+// I have 100 random records to insert into my model.
+const arrayToSeed = [];
 
-for (var i = 1; i <= 100; i++) {
-
-  var pointsToList = randomBulletPoints();
+for (let j = 1; j <= 100; j += 1) {
+  const pointsToList = randomBulletPoints();
 
   arrayToSeed.push(new ItemDetails({
-    itemId: i,
+    itemId: j,
     fitAndStylePointOne: pointsToList[0],
     fitAndStylePointTwo: pointsToList[1],
     fitAndStylePointThree: pointsToList[2],
@@ -67,69 +60,72 @@ for (var i = 1; i <= 100; i++) {
     fastShipping: faker.random.boolean(),
     estimatedShipDimensions: faker.lorem.sentence(),
     estimatedShipWeight: faker.random.words(),
-    type: 'Men - Shirts'
-  }))
+    type: 'Men - Shirts',
+  }));
 }
 
-//Here is where I insert the randomly generated array.
-ItemDetails.insertMany(arrayToSeed, function(err, res) {
-  if(err) {
-    console.log('There has been an error!', err)
-  } else {
-    console.log('Items are inserted.')
-  }
-})
-
-
-//Next, I want to seed my Questions model.
-var Questions = db.Questions;
-
-//First, I'll remove whatever is there.
-Questions.remove({}, function(err, res) {
-  if(err) {
-    console.log('Error removing items', err)
-  } else {
-    console.log('Items removed')
+// Here is where I insert the randomly generated array.
+ItemDetails.insertMany(arrayToSeed, (err) => {
+  if (err) {
+    console.log('There has been an error!', err);
   }
 });
 
-//I need to generate a random ID between 1-100 so that they match one of the item numbers, so I'll do that below.
-var getRandomItemId = function() {
-  return Math.floor(Math.random() * Math.floor(100))
-}
-// Some questions wont yet have answers, and I will need to account for that.
 
-var checkIfQuestionHasAnswer = function() {
-  var hasAnswer = Math.floor(Math.random() * Math.floor(2))
-
-  if(hasAnswer) {
-    return faker.lorem.sentence()
-  } else {
-    return null;
+// Next, I want to seed my Questions model.
+// First, I'll remove whatever is there.
+Questions.remove({}, (err) => {
+  if (err) {
+    console.log('Error removing items', err);
   }
-}
+});
+
+// I need to generate a random ID between 1-100 so that they
+// match one of the item numbers, so I'll do that below.
+const getRandomItemId = () => faker.random.number({ min: 1, max: 100 });
+
+// Some questions wont yet have answers, and I will need to account for that.
+// In cases they don't, I'll factor that in to the other fields that depend on an
+// answer, and push null to those fields.
+
+const checkIfQuestionHasAnswer = function () {
+  const hasAnswer = faker.random.number({ min: 0, max: 1 });
+  const answerArray = [];
+
+  if (hasAnswer) {
+    answerArray.push(faker.lorem.sentence(), faker.name.firstName(), faker.date.past());
+    answerArray.push(faker.random.number(), faker.random.number(), faker.random.boolean());
+  } else {
+    answerArray.push(null, null, null, null, null, null);
+  }
+  return answerArray;
+};
 
 // Now, I'll generate 200 random questions/answers to store in my Questions
-var questionsToSeed = [];
+const questionsToSeed = [];
 
-for (var i = 1; i <= 200; i++) {
+for (let index = 1; index <= 200; index += 1) {
+  const getAnswers = checkIfQuestionHasAnswer();
+
   questionsToSeed.push(new Questions({
-    itemId: getRandomItemId() + 1,
+    itemId: getRandomItemId(),
     question: faker.lorem.sentence(),
-    answer: checkIfQuestionHasAnswer(),
     asker: faker.name.firstName(),
     dateAsked: faker.date.past(),
-    helpfulCount: faker.random.number(),
-    unhelpfulCount: faker.random.number(),
-    targetTeamMember: faker.random.boolean()
-  }))
+    answer: getAnswers[0],
+    nameOfResponder: getAnswers[1],
+    dateAnswered: getAnswers[2],
+    helpfulCount: getAnswers[3],
+    unhelpfulCount: getAnswers[4],
+    targetTeamMember: getAnswers[5],
+  }));
 }
 
-//Here, I'll insert them into the model.
-Questions.insertMany(questionsToSeed, function(err, res) {
-  if(err) {
-    console.log('There has been an error uploading questions!', err)
-  } else {
-    console.log('Questions are inserted.')
+
+// Here, I'll insert them into the model.
+Questions.insertMany(questionsToSeed, (err) => {
+  if (err) {
+    console.log('There has been an error uploading questions!', err);
   }
-})
+});
+

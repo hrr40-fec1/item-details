@@ -1,41 +1,33 @@
-var mongoose = require('mongoose');
-var faker = require('faker');
+const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/on-target', {useNewUrlParser: true});
+const db = mongoose.connection;
 
-var db = mongoose.connection;
+// Keeping in comments for future use.
+// var sizingSchema = new mongoose.Schema({
+//   size: { type: String },
+//   neck: String,
+//   chest: String,
+//   sleeve: String,
+//   type: { type: String, default: 'Men - Shirts' }
+// });
 
-db.on('error', console.error.bind(console, 'connection error:'));
-
-db.once('open', function() {
-  console.log('Database and server are connected!')
-});
-
-var sizingSchema = new mongoose.Schema({
-  size: {type: String},
-  neck: String,
-  chest: String,
-  sleeve: String,
-  type: {type: String, default: 'Men - Shirts'}
-});
-
-var Sizing = mongoose.model('Sizing', sizingSchema);
-
-var questionSchema = new mongoose.Schema({
+const questionSchema = new mongoose.Schema({
   itemId: Number,
   question: String,
   answer: String,
   asker: String,
   dateAsked: Date,
+  dateAnswered: Date,
+  nameOfResponder: String,
   helpfulCount: Number,
   unhelpfulCount: Number,
-  targetTeamMember: Boolean
-})
+  targetTeamMember: Boolean,
+});
 
-var Questions = mongoose.model('Questions', questionSchema);
+const Questions = mongoose.model('Questions', questionSchema);
 
-var itemDetailsSchema = new mongoose.Schema({
-  itemId: {type: Number, unique: true},
+const itemDetailsSchema = new mongoose.Schema({
+  itemId: { type: Number, unique: true },
   fitAndStylePointOne: String,
   fitAndStylePointTwo: String,
   fitAndStylePointThree: String,
@@ -60,10 +52,19 @@ var itemDetailsSchema = new mongoose.Schema({
   fastShipping: Boolean,
   estimatedShipDimensions: String,
   estimatedShipWeight: String,
-  type: {type: String, default: 'Men - Shirts'}
+  type: { type: String, default: 'Men - Shirts' },
 });
 
-var ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
+const ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
+
+
+mongoose.connect('mongodb://localhost/on-target', { useNewUrlParser: true });
+
+db.on('error', console.error.bind(console, 'connection error:'));
+
+db.once('open', () => {
+  console.log('Database and server are connected!');
+});
 
 module.exports.ItemDetails = ItemDetails;
 module.exports.Questions = Questions;
