@@ -3,13 +3,15 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 
 // Keeping in comments for future use.
-// var sizingSchema = new mongoose.Schema({
-//   size: { type: String },
-//   neck: String,
-//   chest: String,
-//   sleeve: String,
-//   type: { type: String, default: 'Men - Shirts' }
-// });
+const sizingSchema = new mongoose.Schema({
+  size: { type: String },
+  neck: String,
+  chest: String,
+  sleeve: String,
+  type: { type: String, default: 'Men - Shirts' },
+});
+
+const Sizing = mongoose.model('Sizing', sizingSchema);
 
 const questionSchema = new mongoose.Schema({
   itemId: Number,
@@ -66,5 +68,6 @@ db.once('open', () => {
   console.log('Database and server are connected!');
 });
 
+module.exports.Sizing = Sizing;
 module.exports.ItemDetails = ItemDetails;
 module.exports.Questions = Questions;
