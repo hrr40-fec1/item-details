@@ -4,7 +4,7 @@ const app = express();
 const port = 3001;
 const db = require('../db/index.js');
 
-app.use(express.static('public'));
+app.use(express.static('client/dist'));
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
@@ -17,6 +17,7 @@ app.get('/api/items/:itemId', (req, res) => {
   db.ItemDetails.find({ itemId: id }, (err, results) => {
     if (err) {
       console.log('Error finding specific item.', err);
+      res.status(404);
     } else {
       console.log('Results finding item', results);
       res.send(results);
@@ -31,6 +32,7 @@ app.get('/api/questions/:itemId', (req, res) => {
   db.Questions.find({ itemId: id }, (err, results) => {
     if (err) {
       console.log('No questions at this item id.', err);
+      res.status(404);
     } else {
       console.log('Here are the questions at this item id.', results);
       res.send(results);
@@ -45,11 +47,13 @@ app.get('/api/sizing/:itemId', (req, res) => {
   db.ItemDetails.find({ itemId: id }, (err, results) => {
     if (err) {
       console.log('Cannot find item to get sizing.', err);
+      res.status(404);
     } else {
       const itemType = results[0].type;
       db.Sizing.find({ type: itemType }, (err2, results2) => {
         if (err2) {
           console.log('Cannot find sizing for item type.', err);
+          res.status(404);
         } else {
           console.log(`Here are the sizing details for item type ${itemType}`, results2);
           res.send(results2);
