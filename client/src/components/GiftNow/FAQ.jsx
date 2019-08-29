@@ -8,7 +8,6 @@ function Faq(props) {
     {answer}
     </div>
   )
-
 }
 
 export default Faq;
