@@ -29,7 +29,7 @@ function SellingPoints(props) {
     <div>
     <h3>Fit & style</h3>
     <ul>{listItems}</ul>
-
+    {props.details[0].fitAndStyleBlurb}
     </div>
   )
 

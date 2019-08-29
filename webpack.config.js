@@ -1,10 +1,11 @@
 module.exports = {
   entry: __dirname + '/client/src/App.jsx',
   module: {
+
   rules: [
     {
       test: [/\.jsx$/],
-      include: '/spec/test.js',
+      // include: '/spec/test.js',
       exclude: /(node_modules|bower_components)/,
       use: {
         loader: 'babel-loader',
