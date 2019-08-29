@@ -1,3 +1,5 @@
+import React from 'react';
+
 function GiftSteps(props) {
   var imageUrl = props.step.url
   var step = props.step.step

@@ -1,10 +1,10 @@
+import React from 'react';
+
 function Sizing(props) {
 
-  console.log(props.details)
-
-  var chart = props.details.map(item => {
+  var chart = props.details.map((item, index) => {
     return(
-      <tbody>
+      <tbody key={index}>
       <tr>
         <td>{item.size}</td>
         <td>{item.neck}</td>
@@ -17,7 +17,7 @@ function Sizing(props) {
   })
 
   return (
-    <div>
+    <div className="sizing">
     <h3>Sizing</h3>
     <table>
     <tbody>

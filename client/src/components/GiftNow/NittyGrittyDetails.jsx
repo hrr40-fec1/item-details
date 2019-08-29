@@ -1,3 +1,4 @@
+import React from 'react';
 import Faq from './FAQ.jsx'
 
 function NittyGrittyDetails() {
@@ -20,7 +21,7 @@ function NittyGrittyDetails() {
     return <Faq question={question} />
   })
   return(
-    <div>
+    <div className="nittyGrittyDetails">
     <h2>The nitty-gritty details</h2>
     {questionsToRender}
     </div>

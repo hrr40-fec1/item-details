@@ -1,3 +1,4 @@
+import React from 'react';
 import QuestionWithAnswer from './QuestionWithAnswer.jsx';
 import QuestionWithoutAnswer from './QuestionWithoutAnswer.jsx'
 
@@ -18,7 +19,7 @@ function Questions(props) {
     }
   })
   return(
-    <div>
+    <div className="question">
     {questions}
     </div>
   )

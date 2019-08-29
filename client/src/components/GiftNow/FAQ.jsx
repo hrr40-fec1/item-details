@@ -1,3 +1,5 @@
+import React from 'react';
+
 function Faq(props) {
   var question = props.question.question
   var answer = props.question.answer

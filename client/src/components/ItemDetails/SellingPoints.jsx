@@ -21,8 +21,8 @@ function SellingPoints(props) {
     sellingPoints.push(props.details[0].fitAndStylePointFive)
     }
 
-  var listItems = sellingPoints.map(item =>
-    <li>{item}</li>
+  var listItems = sellingPoints.map((item, index) =>
+    <li key={index}>{item}</li>
   );
 
   return (

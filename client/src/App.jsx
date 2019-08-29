@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var id = 40;
+    var id = 60;
     Promise.all([fetch("http://127.0.0.1:3001/api/items/" + id),
       fetch("http://127.0.0.1:3001/api/questions/" + id),
       fetch("http://127.0.0.1:3001/api/sizing/" + id)
@@ -69,4 +69,5 @@ class App extends React.Component {
     )
   }
 }
+
 ReactDOM.render(<App />, document.getElementById("service"))

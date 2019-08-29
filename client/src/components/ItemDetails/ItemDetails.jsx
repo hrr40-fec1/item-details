@@ -1,10 +1,11 @@
+import React from 'react';
 import SellingPoints from './SellingPoints.jsx';
 
 function ItemDetails(props) {
   var item = props.details[0];
 
   return(
-    <div>
+    <div className="item-detail-list">
     <SellingPoints details={props.details}/>
       <p><b>Sizing: </b> {item.sizing}</p>
       <p><b>Material: </b> {item.material}</p>

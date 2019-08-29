@@ -1,3 +1,4 @@
+import React from 'react';
 import GiftSteps from './GiftSteps.jsx'
 
 function HeresHowItWorks() {
@@ -23,7 +24,7 @@ function HeresHowItWorks() {
   })
 
   return(
-    <div>
+    <div className="heresHowItWorks">
     <h2>Here's how it works:</h2>
     {stepDiv}
     </div>

@@ -1,3 +1,4 @@
+import React from 'react';
 import HeresHowItWorks from './HeresHowItWorks.jsx';
 import NittyGrittyDetails from './NittyGrittyDetails.jsx';
 
