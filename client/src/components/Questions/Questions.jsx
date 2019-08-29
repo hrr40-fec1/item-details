@@ -16,15 +16,12 @@ function Questions(props) {
       </div>
      )
     }
-
   })
   return(
     <div>
     {questions}
     </div>
   )
-
-  //loop through questions and render conditionally, depending on
 }
 
 export default Questions;

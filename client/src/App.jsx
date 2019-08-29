@@ -2,6 +2,7 @@ import ItemDetails from './components/ItemDetails/ItemDetails.jsx';
 import Shipping from './components/Shipping/Shipping.jsx';
 import Sizing from './components/Sizing/Sizing.jsx';
 import Questions from './components/Questions/Questions.jsx';
+import GiftNow from './components/GiftNow/GiftNow.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,8 +12,8 @@ class App extends React.Component {
       sizing: [],
       questions: []
     };
-
   }
+
   componentDidMount() {
     var id = 20;
     Promise.all([fetch("http://127.0.0.1:3001/api/items/" + id),
@@ -34,7 +35,7 @@ class App extends React.Component {
   render() {
 
     if(this.state.results.length) {
-      var currentEle = <Questions details={this.state.questions}/>
+      var currentEle = <GiftNow />
     }
     return(
       <div>
