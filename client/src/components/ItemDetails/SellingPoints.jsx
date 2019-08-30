@@ -2,27 +2,21 @@ import React from 'react';
 
 function SellingPoints(props) {
   var sellingPoints = [];
-
-  if(props.details[0].fitAndStylePointOne) {
-    sellingPoints.push(props.details[0].fitAndStylePointOne)
+  var itemDetails = props.details[0];
+  var fitAndStylePoints = {
+    1: itemDetails.fitAndStylePointOne,
+    2: itemDetails.fitAndStylePointTwo,
+    3: itemDetails.fitAndStylePointThree,
+    4: itemDetails.fitAndStylePointFour,
+    5: itemDetails.fitAndStylePointFive
   }
 
-   if(props.details[0].fitAndStylePointTwo) {
-    sellingPoints.push(props.details[0].fitAndStylePointTwo)
+  for (var key in fitAndStylePoints) {
+    if(fitAndStylePoints[key]) {
+      sellingPoints.push(fitAndStylePoints[key])
+    }
   }
-
-   if(props.details[0].fitAndStylePointThree) {
-    sellingPoints.push(props.details[0].fitAndStylePointThree)
-    }
-
-   if(props.details[0].fitAndStylePointFour) {
-    sellingPoints.push(props.details[0].fitAndStylePointFour)
-    }
-
-   if(props.details[0].fitAndStylePointFive) {
-    sellingPoints.push(props.details[0].fitAndStylePointFive)
-    }
-
+  
   var listItems = sellingPoints.map((item, index) =>
     <li key={index}>{item}</li>
   );
