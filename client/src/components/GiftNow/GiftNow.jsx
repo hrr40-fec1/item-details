@@ -4,7 +4,7 @@ import NittyGrittyDetails from './NittyGrittyDetails.jsx';
 
 function GiftNow() {
   return(
-    <div>
+    <div className="giftNow">
     <HeresHowItWorks />
     <NittyGrittyDetails />
     </div>

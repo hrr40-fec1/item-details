@@ -1,3 +1,5 @@
+import React from 'react';
+
 function QuestionWithoutAnswer(props) {
   var item = props.question
 
@@ -6,7 +8,7 @@ function QuestionWithoutAnswer(props) {
   var dateAsked = item.dateAsked
 
   return (
-    <div>
+    <div className="questionWithoutAnswer">
       <p><b>Q: {question}</b></p>
       <p>{asker} - {dateAsked}</p>
     </div>

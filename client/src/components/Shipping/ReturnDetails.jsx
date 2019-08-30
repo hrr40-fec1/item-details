@@ -1,6 +1,8 @@
+import React from 'react';
+
 function ReturnDetails() {
   return(
-    <div>
+    <div className = 'returnDetails'>
     <h3>Return details</h3>
       <p>This item can be returned to any Target store or Target.com.</p>
       <p>This item must be returned within 365 days of the ship date. See return policy for details.</p>

@@ -5,7 +5,7 @@ function Faq(props) {
   var answer = props.question.answer
 
   return(
-    <div>
+    <div className="Faq">
     {question}
     {answer}
     </div>

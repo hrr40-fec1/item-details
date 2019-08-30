@@ -6,7 +6,7 @@ function GiftSteps(props) {
   var description = props.step.description
 
   return(
-    <div>
+    <div className="giftSteps">
     <img src={imageUrl} />
       {step}
       {description}

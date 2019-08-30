@@ -1,4 +1,7 @@
+import React from 'react';
+
 function QuestionWithAnswer(props) {
+
   var item = props.question
 
   var question = item.question
@@ -18,7 +21,7 @@ function QuestionWithAnswer(props) {
   }
 
   return (
-    <div>
+    <div className="questionWithAnswer">
       <p><b>Q: {question}</b></p>
       <p>{asker} - {dateAsked}</p>
       <p><b>A:</b>{answer}</p>
