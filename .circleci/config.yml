@@ -4,9 +4,7 @@ jobs:
     working_directory: ~/spec/test.js
     docker:
       - image: circleci/node:9.11.1
-      
-      working_directory: ~/spec
-      
+            
     steps:
       - checkout
       - run:
