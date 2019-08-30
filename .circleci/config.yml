@@ -4,19 +4,16 @@ jobs:
     working_directory: ~/spec/test.js
     docker:
       - image: circleci/node:9.11.1
-            
     steps:
       - checkout
       - run:
-        - name: npm-install
-        - command: npm install
-        
+          name: install-npm-wee
+          command: npm install
       - save_cache: # special step to save the dependency cache
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-            
-        -run: 
+       - run: 
           name: test
           command: npm run test
       
