@@ -1,8 +1,20 @@
  version: 2
  jobs:
-   build:
+   jest-tests:
      docker:
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: "not a command"
+       - run: echo "Jest/Enzyme Test Suite"
+   mocha-tests:
+     docker:
+       - image: circleci/ruby:2.4.1
+     steps:
+       - checkout
+       - run: echo "Server/DB Mocha Test Suite"
+workflows:
+   version: 2
+   test_suite:
+     jobs:
+       - jest-tests
+       - mocha-tests
