@@ -1,15 +1,18 @@
 import React from 'react';
-import Enzyme from './enzyme.js'
 import { expect } from 'chai';
-import { shallow } from 'enzyme';
-
+import Enzyme, {
+  configure, shallow,
+} from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
 import ItemDetails from '../../client/src/components/ItemDetails/ItemDetails';
 import SellingPoints from '../../client/src/components/ItemDetails/SellingPoints';
 
-var mockProps = [{
+configure({ adapter: new Adapter() });
 
-  features: "Practical",
-  fit: "Handmade",
+const mockProps = [{
+
+  features: 'Practical',
+  fit: 'Handmade',
   material: 'Polyester',
   sizing: 'Runs long',
   neckline: 'High',
@@ -22,31 +25,28 @@ var mockProps = [{
   UPC: 10,
   DPCI: 12,
   origin: 'California',
-  itemStyle: 'Men - Shirts',
-  fitAndStyleBlurb: "fitAndStyleBlurb",
+  fitAndStyleBlurb: 'fitAndStyleBlurb',
   fitAndStylePointFive: null,
   fitAndStylePointFour: null,
   fitAndStylePointOne: null,
   fitAndStylePointThree: null,
-  fitAndStylePointTwo: null
-}]
+  fitAndStylePointTwo: null,
+}];
 
 describe('<ItemDetails />', () => {
-
   it('renders SellingPoints component', () => {
-    const wrapper = shallow(<ItemDetails details={mockProps}/>);
-    expect(wrapper.find(SellingPoints)).to.have.lengthOf(1)
+    const wrapper = shallow(<ItemDetails details={mockProps} />);
+    expect(wrapper.find(SellingPoints)).to.have.lengthOf(1);
   });
 
   it('renders an `.item-detail-list` class', () => {
-    const wrapper = shallow(<ItemDetails details={mockProps}/>);
+    const wrapper = shallow(<ItemDetails details={mockProps} />);
     expect(wrapper.find('.item-detail-list')).to.have.lengthOf(1);
   });
 
   it('renders a fit and style blurb within SellingPoints component', () => {
-    const wrapper = shallow(<SellingPoints details={mockProps}/>);
-    var blurb = mockProps.fitAndStyleBlurb;
-    expect(wrapper.text()).to.include("fitAndStyleBlurb")
+    const wrapper = shallow(<SellingPoints details={mockProps} />);
+    expect(wrapper.text()).to.include('fitAndStyleBlurb');
   });
 
   it('renders sizing', () => {
@@ -121,6 +121,6 @@ describe('<ItemDetails />', () => {
 
   it('renders an item style', () => {
     const wrapper = shallow(<ItemDetails details={mockProps} />);
-    expect(wrapper.text()).to.include('Men - Shirts');
+    expect(wrapper.text()).to.include('Basic');
   });
 });

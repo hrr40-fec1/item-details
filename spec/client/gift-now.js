@@ -1,5 +1,4 @@
 import React from 'react';
-import Enzyme from './enzyme.js'
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
 
@@ -12,12 +11,12 @@ import NittyGrittyDetails from '../../client/src/components/GiftNow/NittyGrittyD
 describe('<GiftNow />', () => {
   it('has a nittyGrittyDetails component that renders 3 FAQ components', () => {
     const wrapper = shallow(<NittyGrittyDetails />);
-    expect(wrapper.find(Faq)).to.have.lengthOf(3)
+    expect(wrapper.find(Faq)).to.have.lengthOf(3);
   });
 
   it('has a heresHowItWorks component that renders 3 gift steps components', () => {
     const wrapper = shallow(<HeresHowItWorks />);
-    expect(wrapper.find(GiftSteps)).to.have.lengthOf(3)
+    expect(wrapper.find(GiftSteps)).to.have.lengthOf(3);
   });
 
   it('has a heresHowItWorks component that renders an `.heresHowItWorks` class', () => {
@@ -38,34 +37,34 @@ describe('<GiftNow />', () => {
 
 describe('<GiftSteps />', () => {
   it('has a `.giftSteps` class', () => {
-    const wrapper = shallow(<GiftSteps step={{imageUrl: "https://target.scene7.com"}}/>);
+    const wrapper = shallow(<GiftSteps step={{ imageUrl: 'https://target.scene7.com' }} />);
     expect(wrapper.find('.giftSteps')).to.have.lengthOf(1);
   });
 
   it('renders a step', () => {
-    const wrapper = shallow(<GiftSteps step={{step: "Step 2"}}/>);
-    expect(wrapper.text()).to.include("Step 2")
+    const wrapper = shallow(<GiftSteps step={{ step: 'Step 2' }} />);
+    expect(wrapper.text()).to.include('Step 2');
   });
 
   it('renders a description', () => {
-    const wrapper = shallow(<GiftSteps step={{description: "stepDescription"}}/>);
-    expect(wrapper.text()).to.include("stepDescription")
+    const wrapper = shallow(<GiftSteps step={{ description: 'stepDescription' }} />);
+    expect(wrapper.text()).to.include('stepDescription');
   });
-})
+});
 
 describe('<Faq />', () => {
   it('has an `.Faq` class', () => {
-    const wrapper = shallow(<Faq question={{question: "FaqQuestion"}}/>);
+    const wrapper = shallow(<Faq question={{ question: 'FaqQuestion' }} />);
     expect(wrapper.find('.Faq')).to.have.lengthOf(1);
   });
 
   it('renders a question', () => {
-    const wrapper = shallow(<Faq question={{question: "FaqQuestion"}}/>);
+    const wrapper = shallow(<Faq question={{ question: 'FaqQuestion' }} />);
     expect(wrapper.text()).to.equal('FaqQuestion');
   });
 
   it('renders an answer', () => {
-    const wrapper = shallow(<Faq question={{answer: "FaqAnswer"}}/>);
-    expect(wrapper.text()).to.equal("FaqAnswer");
+    const wrapper = shallow(<Faq question={{ answer: 'FaqAnswer' }} />);
+    expect(wrapper.text()).to.equal('FaqAnswer');
   });
-})
+});
