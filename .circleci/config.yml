@@ -1,7 +1,7 @@
 version: 2
 jobs:
   build:
-    working_directory: ~/spec/test.js
+    working_directory: ~/spec
     docker:
       - image: circleci/node:9.11.1
     steps:
@@ -15,5 +15,5 @@ jobs:
             - ./node_modules
        - run: 
           name: test
-          command: npm run test
+          command: npm test
       
