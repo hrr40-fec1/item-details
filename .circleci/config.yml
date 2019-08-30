@@ -1,20 +1,22 @@
  version: 2
  jobs:
-   jest-tests:
+   one:
      docker:
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: echo "Jest/Enzyme Test Suite"
-   mocha-tests:
+       - run: echo "A first hello"
+       - run: sleep 25
+   two:
      docker:
        - image: circleci/ruby:2.4.1
      steps:
        - checkout
-       - run: echo "Server/DB Mocha Test Suite"
-workflows:
+       - run: echo "A more familiar hi"
+       - run: sleep 15
+ workflows:
    version: 2
-   test_suite:
+   one_and_two:
      jobs:
-       - jest-tests
-       - mocha-tests
+       - one
+       - two
