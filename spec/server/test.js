@@ -1,9 +1,8 @@
 var chai = require('chai');
 var chaiHttp = require('chai-http');
-var app = require('../server/server.js');
+var app = require('../../server/server.js');
 
 var assert = require('assert');
-const db = require('../db/index.js')
 
 chai.use(chaiHttp)
 var should = require('chai').should()
@@ -39,6 +38,7 @@ describe('Item tables should render with the correct item types', function() {
         })
     });
   });
+
   describe('Item Details Database', function() {
     it('should return for item id not in the database', function(done) {
        chai.request('http://localhost:3001')

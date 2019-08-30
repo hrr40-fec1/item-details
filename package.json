@@ -11,7 +11,7 @@
     "seed": "node db/seed.js",
     "react-dev": "webpack -d --watch",
     "test": "jest --coverage",
-    "mocha": "mocha"
+    "mocha": "mocha spec/server"
   },
   "dependencies": {
     "chai": "^4.2.0",
