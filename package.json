@@ -10,8 +10,7 @@
     "start": "nodemon server/server.js",
     "seed": "node db/seed.js",
     "react-dev": "webpack -d --watch",
-    "test": "jest --coverage",
-    "mocha": "mocha spec/server"
+    "test": "jest --coverage"
   },
   "dependencies": {
     "chai": "^4.2.0",
