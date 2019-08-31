@@ -1,16 +1,16 @@
 import React from 'react';
-import ShippingOptions from './ShippingOptions.jsx';
-import ShippingDetails from './ShippingDetails.jsx';
-import ReturnDetails from './ReturnDetails.jsx';
+import ShippingOptions from './ShippingOptions';
+import ShippingDetails from './ShippingDetails';
+import ReturnDetails from './ReturnDetails';
 
-function Shipping(props) {
-  return(
+function Shipping({ details }) {
+  return (
     <div className="shipping">
-      <ShippingOptions details={props.details} />
-      <ShippingDetails details={props.details} />
+      <ShippingOptions details={details} />
+      <ShippingDetails details={details} />
       <ReturnDetails />
     </div>
-  )
+  );
 }
 
 export default Shipping;

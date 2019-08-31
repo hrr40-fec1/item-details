@@ -1,15 +1,15 @@
 import React from 'react';
 
-function Faq(props) {
-  var question = props.question.question
-  var answer = props.question.answer
+function Faq({ question }) {
+  const q = question.question;
+  const a = question.answer;
 
-  return(
+  return (
     <div className="Faq">
-    {question}
-    {answer}
+      {q}
+      {a}
     </div>
-  )
+  );
 }
 
 export default Faq;

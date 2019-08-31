@@ -1,14 +1,14 @@
 import React from 'react';
-import HeresHowItWorks from './HeresHowItWorks.jsx';
-import NittyGrittyDetails from './NittyGrittyDetails.jsx';
+import HeresHowItWorks from './HeresHowItWorks';
+import NittyGrittyDetails from './NittyGrittyDetails';
 
 function GiftNow() {
-  return(
+  return (
     <div className="giftNow">
-    <HeresHowItWorks />
-    <NittyGrittyDetails />
+      <HeresHowItWorks />
+      <NittyGrittyDetails />
     </div>
-  )
+  );
 }
 
 export default GiftNow;

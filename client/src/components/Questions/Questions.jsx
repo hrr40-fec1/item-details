@@ -1,28 +1,27 @@
 import React from 'react';
-import QuestionWithAnswer from './QuestionWithAnswer.jsx';
-import QuestionWithoutAnswer from './QuestionWithoutAnswer.jsx'
+import QuestionWithAnswer from './QuestionWithAnswer';
+import QuestionWithoutAnswer from './QuestionWithoutAnswer';
 
-function Questions(props) {
-  var questions = props.details.map(question => {
+function Questions({ details }) {
+  const questions = details.map((question) => {
     if (question.answer) {
-      return(
-      <div>
-        <QuestionWithAnswer question={question}/>
-      </div>
-    )
-    } else {
-      return(
-      <div>
-      <QuestionWithoutAnswer question={question} />
-      </div>
-     )
+      return (
+        <div>
+          <QuestionWithAnswer questionAsked={question} />
+        </div>
+      );
     }
-  })
-  return(
+    return (
+      <div>
+        <QuestionWithoutAnswer questionAsked={question} />
+      </div>
+    );
+  });
+  return (
     <div className="question">
-    {questions}
+      {questions}
     </div>
-  )
+  );
 }
 
 export default Questions;

@@ -1,6 +1,10 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import Enzyme from 'enzyme';
+
+Enzyme.configure({ adapter: new Adapter() })
 
 import GiftNow from '../../client/src/components/GiftNow/GiftNow';
 import Faq from '../../client/src/components/GiftNow/FAQ';
@@ -42,7 +46,7 @@ describe('<GiftSteps />', () => {
   });
 
   it('renders a step', () => {
-    const wrapper = shallow(<GiftSteps step={{ step: 'Step 2' }} />);
+    const wrapper = shallow(<GiftSteps step={{ stepNumber: 'Step 2' }} />);
     expect(wrapper.text()).to.include('Step 2');
   });
 

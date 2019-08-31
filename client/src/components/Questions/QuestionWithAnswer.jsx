@@ -1,34 +1,65 @@
 import React from 'react';
 
-function QuestionWithAnswer(props) {
+function QuestionWithAnswer({ questionAsked }) {
+  const { question } = questionAsked;
+  const { answer } = questionAsked;
+  const { asker } = questionAsked;
+  const { dateAsked } = questionAsked;
+  const { dateAnswered } = questionAsked;
+  const { helpfulCount } = questionAsked;
+  const { unhelpfulCount } = questionAsked;
+  const { nameOfResponder } = questionAsked;
+  const { targetTeamMember } = questionAsked;
 
-  var item = props.question
-
-  var question = item.question
-  var answer = item.answer
-  var asker = item.asker
-  var dateAsked = item.dateAsked
-  var dateAnswered = item.dateAnswered
-  var helpfulCount = item.helpfulCount
-  var unhelpfulCount = item.unhelpfulCount
-  var responder = item.nameOfResponder
-  var targetTeamMember = item.targetTeamMember
-
-  if(targetTeamMember) {
-    var teamText = 'Target Team Member'
+  if (targetTeamMember) {
+    var teamText = 'Target Team Member';
   } else {
-    teamText = ''
+    teamText = '';
   }
 
   return (
     <div className="questionWithAnswer">
-      <p><b>Q: {question}</b></p>
-      <p>{asker} - {dateAsked}</p>
-      <p><b>A:</b>{answer}</p>
-      <p>{responder} - {dateAnswered} <a>Helpful({helpfulCount})</a> <a>Unhelpful({unhelpfulCount})</a> <a>Report</a></p>
+      <p>
+        <b>
+Q:
+          {question}
+        </b>
+      </p>
+      <p>
+        {asker}
+        {' '}
+-
+        {' '}
+        {dateAsked}
+      </p>
+      <p>
+        <b>A:</b>
+        {answer}
+      </p>
+      <p>
+        {nameOfResponder}
+        {' '}
+-
+        {' '}
+        {dateAnswered}
+        {' '}
+        <a>
+Helpful(
+          {helpfulCount}
+)
+        </a>
+        {' '}
+        <a>
+Unhelpful(
+          {unhelpfulCount}
+)
+        </a>
+        {' '}
+        <a>Report</a>
+      </p>
       {teamText}
     </div>
-  )
+  );
 }
 
 export default QuestionWithAnswer;

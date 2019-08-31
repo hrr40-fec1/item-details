@@ -15,11 +15,11 @@ app.get('/api/items/:itemId', (req, res) => {
   const id = req.params.itemId;
 
   db.ItemDetails.find({ itemId: id }, (err, results) => {
-    if (err) {
+    if (err || results.length === 0) {
       console.log('Error finding specific item.', err);
-      res.status(404);
+      res.sendStatus(404);
     } else {
-      console.log('Results finding item', results);
+      // console.log('Results finding item', results);
       res.send(results);
     }
   });
@@ -30,11 +30,11 @@ app.get('/api/questions/:itemId', (req, res) => {
   const id = req.params.itemId;
 
   db.Questions.find({ itemId: id }, (err, results) => {
-    if (err) {
+    if (err || results.length === 0) {
       console.log('No questions at this item id.', err);
-      res.status(404);
+      res.sendStatus(404);
     } else {
-      console.log('Here are the questions at this item id.', results);
+      // console.log('Here are the questions at this item id.', results);
       res.send(results);
     }
   });
@@ -45,17 +45,17 @@ app.get('/api/sizing/:itemId', (req, res) => {
   const id = req.params.itemId;
 
   db.ItemDetails.find({ itemId: id }, (err, results) => {
-    if (err) {
+    if (err || results.length === 0) {
       console.log('Cannot find item to get sizing.', err);
-      res.status(404);
+      res.sendStatus(404);
     } else {
       const itemType = results[0].type;
       db.Sizing.find({ type: itemType }, (err2, results2) => {
         if (err2) {
           console.log('Cannot find sizing for item type.', err);
-          res.status(404);
+          res.sendStatus(404);
         } else {
-          console.log(`Here are the sizing details for item type ${itemType}`, results2);
+          // console.log(`Here are the sizing details for item type ${itemType}`, results2);
           res.send(results2);
         }
       });

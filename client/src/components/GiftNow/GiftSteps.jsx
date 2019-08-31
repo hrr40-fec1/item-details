@@ -1,17 +1,17 @@
 import React from 'react';
 
-function GiftSteps(props) {
-  var imageUrl = props.step.url
-  var step = props.step.step
-  var description = props.step.description
+function GiftSteps({ step }) {
+  const { url } = step;
+  const { stepNumber } = step;
+  const { description } = step;
 
-  return(
+  return (
     <div className="giftSteps">
-    <img src={imageUrl} />
-      {step}
+      <img src={url} alt="Icon" />
+      {stepNumber}
       {description}
     </div>
-  )
+  );
 }
 
 export default GiftSteps;
