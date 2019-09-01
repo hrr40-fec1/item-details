@@ -1,25 +1,26 @@
 import React from 'react';
+import moment from 'moment';
 
 function QuestionWithoutAnswer({ questionAsked }) {
-  const { question } = questionAsked;
-  const { asker } = questionAsked;
-  const { dateAsked } = questionAsked;
+  const { question, asker, dateAsked } = questionAsked;
+  const relativeDate = moment({dateAsked}).fromNow();
 
   return (
     <div className="questionWithoutAnswer">
       <p>
         <b>
 Q:
-          {question}
+          <b>{question}</b>
         </b>
       </p>
-      <p>
+      <p className='askerAndDateAsked'>
         {asker}
         {' '}
--
+—
         {' '}
-        {dateAsked}
+        {relativeDate}
       </p>
+      <button className='answerIt'>Answer it</button>
     </div>
   );
 }

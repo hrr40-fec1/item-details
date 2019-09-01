@@ -13,8 +13,7 @@ function Sizing({ details }) {
   ));
 
   return (
-    <div className="sizing">
-      <h3>Sizing</h3>
+    <div className='sizing'>
       <table>
         <tbody>
           <tr>
@@ -25,6 +24,7 @@ function Sizing({ details }) {
           </tr>
         </tbody>
         {chart}
+        <div className='description'>All sizes in inches unless otherwise noted.</div>
       </table>
     </div>
   );

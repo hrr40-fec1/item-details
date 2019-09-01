@@ -8,83 +8,62 @@ function ItemDetails({ details }) {
     <div className="item-detail-list">
       <SellingPoints details={details} />
       <p>
-        <b>Sizing: </b>
-        {' '}
-        {item.sizing}
+      <span className='h-text-bold'>Sizing:</span>
+      <span>{item.sizing}</span>
       </p>
       <p>
-        <b>Material: </b>
-        {' '}
-        {item.material}
+      <span className='h-text-bold'>Material:</span>
+      <span>{item.material}</span>
       </p>
       <p>
-        <b>Fit: </b>
-        {' '}
-        {item.fit}
+      <span className='h-text-bold'>Fit:</span>
+      <span>{item.fit}</span>
       </p>
       <p>
-        <b>Length: </b>
-        {' '}
-        {item.length}
+      <span className='h-text-bold'>Length:</span>
+      <span>{item.length}</span>
       </p>
       <p>
-        <b>Features: </b>
-        {' '}
-        {item.features}
+      <span className='h-text-bold'>Features:</span>
+      <span>{item.features}</span>
       </p>
       <p>
-        <b>Neckline: </b>
-        {' '}
-        {item.neckline}
+      <span className='h-text-bold'>Neckline:</span>
+      <span>{item.neckline}</span>
       </p>
       <p>
-        <b>Item Style: </b>
-        {' '}
-        {item.itemStyle}
+      <span className='h-text-bold'>Item Style:</span>
+      <span>{item.itemStyle}</span>
       </p>
       <p>
-        <b>Garment cuff cut type: </b>
-        {' '}
-        {item.garmentCuffCutType}
+      <span className='h-text-bold'>Garment cuff cut type:</span>
+      <span>{item.garmentCuffCutType}</span>
       </p>
       <p>
-        <b>Garment sleeve style: </b>
-        {' '}
-        {item.garmentSleeveStyle}
+      <span className='h-text-bold'>Garment sleeve style:</span>
+      <span>{item.garmentSleeveStyle}</span>
       </p>
       <p>
-        <b>Care and Cleaning: </b>
-        {' '}
-        {item.careAndCleaning}
+      <span className='h-text-bold'>Care and cleaning:</span>
+      <span>{item.careAndCleaning}</span>
       </p>
       <p>
-        <b>TCIN: </b>
-        {' '}
-        {item.TCIN}
+      <span className='h-text-bold'>TCIN:</span>
+      <span>{item.TCIN}</span>
       </p>
       <p>
-        <b>UPC: </b>
-        {' '}
-        {item.UPC}
+      <span className='h-text-bold'>UPC:</span>
+      <span>{item.UPC}</span>
       </p>
       <p>
-        <b>ItemNumber (DPCI): </b>
-        {' '}
-        {item.DPCI}
+      <span className='h-text-bold'>DPCI:</span>
+      <span>{item.DPCI}</span>
       </p>
       <p>
-        <b>Origin: </b>
-        {' '}
-        {item.origin}
+      <span className='h-text-bold'>Origin:</span>
+      <span>{item.origin}</span>
       </p>
-      <p>
-        <b>Item Style: </b>
-        {' '}
-        {item.itemStyle}
-      </p>
-
-      <p>If the item details above aren’t accurate or complete, we want to know about it.</p>
-      <p>Report incorrect product info.</p>
+      <p>If the item details above aren’t accurate or complete, we want to know about it. <u>Report incorrect product info.</u></p>
     </div>
   );
 }

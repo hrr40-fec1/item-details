@@ -1,15 +1,13 @@
 import React from 'react';
 
 function GiftSteps({ step }) {
-  const { url } = step;
-  const { stepNumber } = step;
-  const { description } = step;
+  const { url, stepNumber, description } = step;
 
   return (
     <div className="giftSteps">
       <img src={url} alt="Icon" />
-      {stepNumber}
-      {description}
+      <div className="step">{stepNumber}</div>
+      <div className="description">{description}</div>
     </div>
   );
 }

@@ -6,8 +6,8 @@ function Faq({ question }) {
 
   return (
     <div className="Faq">
-      {q}
-      {a}
+      <div className='faqQuestion'>{q}</div>
+      <div className='faqAnswer'>{a}</div>
     </div>
   );
 }

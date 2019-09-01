@@ -6,9 +6,7 @@ function Questions({ details }) {
   const questions = details.map((question) => {
     if (question.answer) {
       return (
-        <div>
           <QuestionWithAnswer questionAsked={question} />
-        </div>
       );
     }
     return (
@@ -18,8 +16,14 @@ function Questions({ details }) {
     );
   });
   return (
+    <div>
     <div className="question">
       {questions}
+    </div>
+    <div className="questionButtons">
+      <button className="seeAllQuestions">see all questions</button>
+      <button className="askAQuestion">Ask a question</button>
+    </div>
     </div>
   );
 }

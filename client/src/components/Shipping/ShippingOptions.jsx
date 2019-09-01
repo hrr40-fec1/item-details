@@ -8,12 +8,7 @@ function ShippingOptions({ details }) {
   return (
     <div className="shippingOptions">
       <h3>Shipping options</h3>
-      <p>
-Get it by
-        {newDate}
-        {' '}
-with express shipping
-      </p>
+      <p><span className='getItBy'>Get it by {newDate} </span>with express shipping</p>
     </div>
   );
 }

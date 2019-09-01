@@ -11,7 +11,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       current: 'ItemDetails',
-      results: [],
+      itemDetails: [],
       sizing: [],
       questions: [],
     };
@@ -19,15 +19,24 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    const id = 50;
-    Promise.all([fetch(`http://127.0.0.1:3001/api/items/${id}`),
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams) {
+      if (urlParams.get('productId')) {
+        var id = urlParams.get('productId');
+      } else {
+        var id = 73;
+      }
+    }
+
+    Promise.all([
+      fetch(`http://127.0.0.1:3001/api/items/${id}`),
       fetch(`http://127.0.0.1:3001/api/questions/${id}`),
       fetch(`http://127.0.0.1:3001/api/sizing/${id}`),
     ])
       .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
       .then(([res1, res2, res3]) => {
         this.setState({
-          results: res1,
+          itemDetails: res1,
           questions: res2,
           sizing: res3,
         });
@@ -41,29 +50,35 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.current === 'ItemDetails' && this.state.results.length) {
-      var currentEle = <ItemDetails details={this.state.results} />;
+    var currentEle;
+    if (this.state.current === 'ItemDetails' && this.state.itemDetails.length) {
+      currentEle = <ItemDetails details={this.state.itemDetails} />;
     } else if (this.state.current === 'Shipping') {
-      var currentEle = <Shipping details={this.state.results} />;
+      currentEle = <Shipping details={this.state.itemDetails} />;
     } else if (this.state.current === 'Sizing') {
-      var currentEle = <Sizing details={this.state.sizing} />;
+      currentEle = <Sizing details={this.state.sizing} />;
     } else if (this.state.current === 'Questions') {
-      var currentEle = <Questions details={this.state.questions} />;
+      currentEle = <Questions details={this.state.questions} />;
     } else if (this.state.current === 'GiftNow') {
-      var currentEle = <GiftNow />;
+      currentEle = <GiftNow />;
     }
 
+    if(this.state.current === 'Sizing' || this.state.current === 'GiftNow') {
+      var currentlyRendered = 'currentlyRenderedCenter'
+    } else {
+      currentlyRendered = 'currentlyRenderedLeft'
+    }
     return (
       <div>
         <nav>
-          <a onClick={() => this.handleClick('ItemDetails')}>Details  </a>
-          <a onClick={() => this.handleClick('Sizing')}>Size charts  </a>
-          <a onClick={() => this.handleClick('Shipping')}>Shipping & Returns </a>
-          <a onClick={() => this.handleClick('Questions')}>Q&A  </a>
+          <a className='clicked' onClick={() => this.handleClick('ItemDetails')}>Details</a>
+          <a onClick={() => this.handleClick('Sizing')}>Size charts</a>
+          <a onClick={() => this.handleClick('Shipping')}>Shipping & Returns</a>
+          <a onClick={() => this.handleClick('Questions')}>Q&A</a>
           <a onClick={() => this.handleClick('GiftNow')}>What's GiftNow?</a>
 
         </nav>
-        <div>{currentEle}</div>
+        <div className={currentlyRendered}>{currentEle}</div>
       </div>
     );
   }

@@ -21,7 +21,9 @@ function NittyGrittyDetails() {
   return (
     <div className="nittyGrittyDetails">
       <h2>The nitty-gritty details</h2>
-      {questionsToRender}
+      <div className='questionsToRender'>{questionsToRender}</div>
+      <button className='moreFaqs'>more FAQs</button>
+      <div className="description">**Not all items are eligible for GiftNow.</div>
     </div>
   );
 }

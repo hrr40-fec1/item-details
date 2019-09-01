@@ -4,7 +4,7 @@ const db = mongoose.connection;
 
 // Keeping in comments for future use.
 const sizingSchema = new mongoose.Schema({
-  size: { type: String },
+  size: String,
   neck: String,
   chest: String,
   sleeve: String,

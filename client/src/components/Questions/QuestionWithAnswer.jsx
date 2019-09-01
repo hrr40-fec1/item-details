@@ -1,15 +1,12 @@
 import React from 'react';
+import moment from 'moment';
 
 function QuestionWithAnswer({ questionAsked }) {
-  const { question } = questionAsked;
-  const { answer } = questionAsked;
-  const { asker } = questionAsked;
-  const { dateAsked } = questionAsked;
-  const { dateAnswered } = questionAsked;
-  const { helpfulCount } = questionAsked;
-  const { unhelpfulCount } = questionAsked;
-  const { nameOfResponder } = questionAsked;
-  const { targetTeamMember } = questionAsked;
+  const { question, answer, asker, dateAsked, dateAnswered, helpfulCount,
+    unhelpfulCount, nameOfResponder, targetTeamMember } = questionAsked;
+
+  const relativeDateAsked = moment(dateAsked, moment.defaultFormat).fromNow();
+  const relativeDateAnswered = moment(dateAnswered, moment.defaultFormat).fromNow();
 
   if (targetTeamMember) {
     var teamText = 'Target Team Member';
@@ -19,45 +16,18 @@ function QuestionWithAnswer({ questionAsked }) {
 
   return (
     <div className="questionWithAnswer">
-      <p>
-        <b>
-Q:
-          {question}
-        </b>
+      <p><strong>Q: {question}</strong></p>
+      <p className='askerAndDateAsked'>{asker}—{relativeDateAsked}</p>
+      <div className='answerDiv'>
+      <p><span className='a'><strong>A: </strong></span>{answer}</p>
+      <p className='answerDetails'>{nameOfResponder}-{relativeDateAnswered}
+        <a><u>Helpful({helpfulCount}) </u></a>
+        <a><u>Unhelpful({unhelpfulCount}) </u></a>
+        <a><u>Report</u></a>
       </p>
-      <p>
-        {asker}
-        {' '}
--
-        {' '}
-        {dateAsked}
-      </p>
-      <p>
-        <b>A:</b>
-        {answer}
-      </p>
-      <p>
-        {nameOfResponder}
-        {' '}
--
-        {' '}
-        {dateAnswered}
-        {' '}
-        <a>
-Helpful(
-          {helpfulCount}
-)
-        </a>
-        {' '}
-        <a>
-Unhelpful(
-          {unhelpfulCount}
-)
-        </a>
-        {' '}
-        <a>Report</a>
-      </p>
-      {teamText}
+      <div className='teamMember'>{teamText}</div>
+      <button className='answerIt'>Answer it</button>
+      </div>
     </div>
   );
 }

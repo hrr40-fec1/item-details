@@ -20,7 +20,7 @@ function SellingPoints({ details }) {
   const listItems = sellingPoints.map((item, index) => <li key={index}>{item}</li>);
 
   return (
-    <div>
+    <div className="sellingPoints">
       <h3>Fit & style</h3>
       <ul>{listItems}</ul>
       {itemDetails.fitAndStyleBlurb}
