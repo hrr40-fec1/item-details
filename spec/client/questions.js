@@ -9,9 +9,7 @@ const mockQuestions = [{
   question: 'thisIsAQuestion',
   asker: 'thisIsAnAsker',
   answer: 'thisIsAnAnswer',
-  dateAnswered: 'thisIsDateAnswered',
-  dateAsked: 'thisIsDateAsked',
-  helpfulCount: 1,
+  helpfulCount: 5,
   unhelpfulCount: 0,
 }];
 
@@ -40,14 +38,9 @@ describe('<QuestionWithAnswer />', () => {
     expect(wrapper.text()).to.include('thisIsAnAnswer');
   });
 
-  it('renders a date answered', () => {
-    const wrapper = shallow(<QuestionWithAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.include('thisIsDateAnswered');
-  });
-
   it('renders a helpfulCount', () => {
     const wrapper = shallow(<QuestionWithAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.include('1');
+    expect(wrapper.text()).to.include('5');
   });
 
   it('renders an unhelpfulCount', () => {
@@ -72,24 +65,14 @@ describe('<QuestionWithoutAnswer />', () => {
     expect(wrapper.text()).to.include('thisIsAnAsker');
   });
 
-  it('renders a date asked', () => {
-    const wrapper = shallow(<QuestionWithoutAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.include('thisIsDateAsked');
-  });
-
   it('does not render an answer', () => {
     const wrapper = shallow(<QuestionWithoutAnswer questionAsked={mockQuestions[0]} />);
     expect(wrapper.text()).to.not.include('thisIsAnAnswer');
   });
 
-  it('does not render a date answered', () => {
-    const wrapper = shallow(<QuestionWithoutAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.not.include('thisIsDateAnswered');
-  });
-
   it('does not render a helpful count', () => {
     const wrapper = shallow(<QuestionWithoutAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.not.include(1);
+    expect(wrapper.text()).to.not.include(5);
   });
 
   it('does not render an unhelpful count', () => {
