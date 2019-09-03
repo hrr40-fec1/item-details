@@ -8,6 +8,8 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+app.use(express.static('client/dist/index.html'));
+
 // Get request to get all item details at particular item id.
 app.get('/api/items/:itemId', (req, res) => {
   const id = req.params.itemId;
