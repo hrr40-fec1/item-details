@@ -4,8 +4,6 @@ const app = express();
 const port = 3001;
 const db = require('../db/index.js');
 
-app.use(express.static('client/dist'));
-
 app.get('/', (req, res) => {
   res.send('Hello World!');
 });
