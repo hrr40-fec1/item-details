@@ -94,7 +94,7 @@ const checkIfQuestionHasAnswer = function () {
 
   if (hasAnswer) {
     answerArray.push(faker.lorem.sentence(), faker.name.firstName(), faker.date.past());
-    answerArray.push(faker.random.number(), faker.random.number(), faker.random.boolean());
+    answerArray.push(faker.random.number({min: 0, max: 5}), faker.random.number({min: 0, max: 5}), faker.random.boolean());
   } else {
     answerArray.push(null, null, null, null, null, null);
   }
