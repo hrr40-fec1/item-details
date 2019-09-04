@@ -4,12 +4,11 @@ const app = express();
 const port = 3001;
 const db = require('../db/index.js');
 
+app.use(express.static('client/dist/'));
+
 app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
-
-app.use(express.static('client/dist/index.html'));
-
+  res.send('Hello!')
+})
 // Get request to get all item details at particular item id.
 app.get('/api/items/:itemId', (req, res) => {
   const id = req.params.itemId;
@@ -63,6 +62,6 @@ app.get('/api/sizing/:itemId', (req, res) => {
   });
 });
 
-app.listen(port, () => {
+var server = app.listen(port, () => {
   console.log(`Item details service listening on port ${port}!`);
 });
