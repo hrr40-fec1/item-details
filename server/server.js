@@ -6,9 +6,6 @@ const db = require('../db/index.js');
 
 app.use(express.static('client/dist/'));
 
-app.get('/', (req, res) => {
-  res.send('Hello!')
-})
 // Get request to get all item details at particular item id.
 app.get('/api/items/:itemId', (req, res) => {
   const id = req.params.itemId;
