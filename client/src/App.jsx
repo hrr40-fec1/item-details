@@ -24,14 +24,14 @@ class App extends React.Component {
       if (urlParams.get('productId')) {
         var id = urlParams.get('productId');
       } else {
-        var id = 73;
+        var id = 14;
       }
     }
 
     Promise.all([
-      fetch(`http://127.0.0.1:3001/api/items/${id}`),
-      fetch(`http://127.0.0.1:3001/api/questions/${id}`),
-      fetch(`http://127.0.0.1:3001/api/sizing/${id}`),
+      fetch(`http://localhost:3001/api/items/${id}`),
+      fetch(`http://localhost:3001/api/questions/${id}`),
+      fetch(`http://localhost:3001/api/sizing/${id}`),
     ])
       .then(([res1, res2, res3]) => Promise.all([res1.json(), res2.json(), res3.json()]))
       .then(([res1, res2, res3]) => {
