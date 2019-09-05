@@ -10,9 +10,3 @@ module.exports = {
   ],
   "testRegex": "(/__tests__/.*|(\\.|/)(gift-now-test))\\.js$",
 };
-
-//change something on one of these to make sure it actually heresHowItWorks
-
-// push up
-
-//add to circleCI
