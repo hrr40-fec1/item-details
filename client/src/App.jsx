@@ -76,11 +76,12 @@ class App extends React.Component {
     }
     return (
       <div>
+      <h1>About this item</h1>
         <nav>
           <a className={this.getClassName('ItemDetails')} onClick={() => this.handleClick('ItemDetails')}>Details</a>
           <a className={this.getClassName('Sizing')} onClick={() => this.handleClick('Sizing')}>Size charts</a>
           <a className={this.getClassName('Shipping')} onClick={() => this.handleClick('Shipping')}>Shipping & Returns</a>
-          <a className={this.getClassName('Guestions')} onClick={() => this.handleClick('Questions')}>Q&A</a>
+          <a className={this.getClassName('Questions')} onClick={() => this.handleClick('Questions')}>Q&A</a>
           <a className={this.getClassName('GiftNow')} onClick={() => this.handleClick('GiftNow')}>What's GiftNow?</a>
         </nav>
         <div className={currentlyRendered}>{currentEle}</div>
