@@ -67,22 +67,22 @@
 //   });
 // });
 //
-// describe('Sizing Database', () => {
-//   it('should return the correct sizing types', (done) => {
-//     chai.request('http://localhost:3001')
-//       .get('/api/sizing/50')
-//       .end((err, res) => {
-//         const firstElementInBody = res.body[0];
-//         res.should.have.status(200);
-//         res.body.should.be.an('array');
-//         firstElementInBody.should.be.an('object');
-//         firstElementInBody.size.should.be.a('string');
-//         firstElementInBody.neck.should.be.a('string');
-//         firstElementInBody.chest.should.be.a('string');
-//       });
-//       done();
+//   describe('Sizing Database', () => {
+//     it('should return the correct sizing types', (done) => {
+//       chai.request('http://localhost:3001')
+//         .get('/api/sizing/50')
+//         .end((err, res) => {
+//           const firstElementInBody = res.body[0];
+//           res.should.have.status(200);
+//           res.body.should.be.an('array');
+//           firstElementInBody.should.be.an('object');
+//           firstElementInBody.size.should.be.a('string');
+//           firstElementInBody.neck.should.be.a('string');
+//           firstElementInBody.chest.should.be.a('string');
+//         });
+//         done();
+//     });
 //   });
-// });
 //
 //
 // describe('Questions Database', () => {
@@ -109,11 +109,11 @@
 //         const firstQuestion = res.body[0];
 //
 //         if (firstQuestion.answer === null) {
-//           firstQuestion.dateAnswered.should.equal(null);
-//           firstQuestion.nameOfResponder.should.equal(null);
-//           firstQuestion.helpfulCount.should.equal(null);
-//           firstQuestion.unhelpfulCount.should.equal(null);
-//           firstQuestion.targetTeamMember.should.equal(null);
+//           (firstQuestion.dateAnswered === null).should.be.true;
+//           (firstQuestion.nameOfResponder === null).should.be.true;
+//           (firstQuestion.helpfulCount === null).should.be.true;
+//           (firstQuestion.unhelpfulCount === null).should.be.true;
+//           (firstQuestion.targetTeamMember === null).should.be.true;
 //         } else if (firstQuestion.answer !== null) {
 //           firstQuestion.dateAnswered.should.not.equal(null);
 //           firstQuestion.nameOfResponder.should.not.equal(null);
