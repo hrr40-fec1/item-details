@@ -1,7 +1,7 @@
 {
-  "name": "front-end-capstone",
+  "name": "item-details",
   "description": "Item Details Service",
-  "author": "",
+  "author": "Daria Jammal",
   "license": "ISC",
   "engines": {
     "node": ">=6.13.0"
