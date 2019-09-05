@@ -164,12 +164,10 @@ img {
   padding-right: 15px;
   justify-content: center;
   text-align: center;
-  align: center;
 }
 
 .giftNow {
   max-width: 90%;
-  align: center;
   display: block;
 }
 
@@ -278,7 +276,6 @@ table {
   border: 10px solid #EDEDEE;
   height: 37px;
   margin: 10px;
-  align: center;
   border-collapse: separate;
   display: table;
 }

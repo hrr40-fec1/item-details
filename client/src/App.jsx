@@ -29,7 +29,7 @@ class App extends React.Component {
     }
 
     Promise.all([
-      fetch(`http://127.0.0.1:3001/api/items/${id}`}),
+      fetch(`http://127.0.0.1:3001/api/items/${id}`),
       fetch(`http://127.0.0.1:3001/api/questions/${id}`),
       fetch(`http://127.0.0.1:3001/api/sizing/${id}`),
     ])
@@ -47,6 +47,12 @@ class App extends React.Component {
     this.setState({
       current: e,
     });
+  }
+
+  getClassName(e) {
+    if (e === this.state.current) {
+      return 'clicked';
+    }
   }
 
   render() {
@@ -71,12 +77,11 @@ class App extends React.Component {
     return (
       <div>
         <nav>
-          <a className='clicked' onClick={() => this.handleClick('ItemDetails')}>Details</a>
-          <a onClick={() => this.handleClick('Sizing')}>Size charts</a>
-          <a onClick={() => this.handleClick('Shipping')}>Shipping & Returns</a>
-          <a onClick={() => this.handleClick('Questions')}>Q&A</a>
-          <a onClick={() => this.handleClick('GiftNow')}>What's GiftNow?</a>
-
+          <a className={this.getClassName('ItemDetails')} onClick={() => this.handleClick('ItemDetails')}>Details</a>
+          <a className={this.getClassName('Sizing')} onClick={() => this.handleClick('Sizing')}>Size charts</a>
+          <a className={this.getClassName('Shipping')} onClick={() => this.handleClick('Shipping')}>Shipping & Returns</a>
+          <a className={this.getClassName('Guestions')} onClick={() => this.handleClick('Questions')}>Q&A</a>
+          <a className={this.getClassName('GiftNow')} onClick={() => this.handleClick('GiftNow')}>What's GiftNow?</a>
         </nav>
         <div className={currentlyRendered}>{currentEle}</div>
       </div>
