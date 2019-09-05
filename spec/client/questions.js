@@ -72,7 +72,7 @@ describe('<QuestionWithoutAnswer />', () => {
 
   it('does not render a helpful count', () => {
     const wrapper = shallow(<QuestionWithoutAnswer questionAsked={mockQuestions[0]} />);
-    expect(wrapper.text()).to.not.include(5);
+    expect(wrapper.text()).to.not.include(`(5)`);
   });
 
   it('does not render an unhelpful count', () => {
