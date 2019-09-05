@@ -2,9 +2,13 @@
 
 Bullseye is a clone of a Target Item Page. This service (item details) is for the item details module within that. This module includes:
 > -A Fit & Details section
+
 > -A Sizing Chart section
+
 > -A Shipping Details section
+
 > -A Q&A section
+
 > -A "What's GiftNow?" section
 
 ## Related Projects
@@ -18,7 +22,6 @@ Bullseye is a clone of a Target Item Page. This service (item details) is for th
 
 1. [Requirements](#requirements)
 2. [Development](#development)
-3. [Testing](#testing)
 
 ## Requirements
 
