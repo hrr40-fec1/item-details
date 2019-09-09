@@ -15,7 +15,6 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
-      - run: 
-          command: npm run test
-          command: npm run seed
-          command: npm run mocha
+      - run: npm run test
+      - run: npm run seed
+      - run: npm run mocha
