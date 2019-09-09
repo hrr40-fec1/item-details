@@ -16,7 +16,6 @@ jobs:
           paths:
             - node_modules
       - run: 
-          name: test
           command: npm run test
           command: npm run seed
           command: npm run mocha
