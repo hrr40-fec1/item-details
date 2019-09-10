@@ -18,9 +18,9 @@ jobs:
           paths:
             - node_modules
       - run: npm run seed
+      - run: npm run stop
       - run: npm run mocha
       - run: npm run test
-      - run: npm run stop
 
 
       
