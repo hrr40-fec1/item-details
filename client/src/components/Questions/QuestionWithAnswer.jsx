@@ -3,13 +3,13 @@ import moment from 'moment';
 
 function QuestionWithAnswer({ questionAsked }) {
   const { question, answer, asker, dateAsked, dateAnswered, helpfulCount,
-    unhelpfulCount, nameOfResponder, targetTeamMember } = questionAsked;
+    unhelpfulCount, nameOfResponder, teamMember } = questionAsked;
 
   const relativeDateAsked = moment(dateAsked, moment.defaultFormat).fromNow();
   const relativeDateAnswered = moment(dateAnswered, moment.defaultFormat).fromNow();
 
-  if (targetTeamMember) {
-    var teamText = 'Target Team Member';
+  if (teamMember) {
+    var teamText = '*Team Member*';
   } else {
     teamText = '';
   }

@@ -106,19 +106,18 @@ chai.use(chaiHttp);
       .end((err, res) => {
         res.should.have.status(200);
         const firstQuestion = res.body[0];
-
         if (firstQuestion.answer === null) {
           (firstQuestion.dateAnswered === null).should.be.true;
           (firstQuestion.nameOfResponder === null).should.be.true;
           (firstQuestion.helpfulCount === null).should.be.true;
           (firstQuestion.unhelpfulCount === null).should.be.true;
-          (firstQuestion.targetTeamMember === null).should.be.true;
+          (firstQuestion.teamMember === null).should.be.true;
         } else if (firstQuestion.answer !== null) {
           firstQuestion.dateAnswered.should.not.equal(null);
           firstQuestion.nameOfResponder.should.not.equal(null);
           firstQuestion.helpfulCount.should.not.equal(null);
           firstQuestion.unhelpfulCount.should.not.equal(null);
-          firstQuestion.targetTeamMember.should.not.equal(null);
+          firstQuestion.teamMember.should.not.equal(null);
         }
       });
       done();
