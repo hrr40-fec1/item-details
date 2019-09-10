@@ -142,7 +142,7 @@ for (let index = 1; index <= 200; index += 1) {
     dateAnswered: getAnswers[2],
     helpfulCount: getAnswers[3],
     unhelpfulCount: getAnswers[4],
-    targetTeamMember: getAnswers[5],
+    teamMember: getAnswers[5],
   }));
 }
 
