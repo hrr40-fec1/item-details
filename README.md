@@ -1,7 +1,6 @@
 # Bullseye - Item Details Service
 
 Bullseye is a clone of a Target Item Page. This service (item details) is for the item details module within that. This module includes:
-
 > -A Fit & Details section
 
 > -A Sizing Chart section
