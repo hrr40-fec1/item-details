@@ -59,7 +59,6 @@ const itemDetailsSchema = new mongoose.Schema({
 
 const ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
 
-
 mongoose.connect('mongodb://localhost/on-target', { useNewUrlParser: true });
 
 db.on('error', console.error.bind(console, 'connection error:'));
