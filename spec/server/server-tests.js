@@ -106,7 +106,6 @@ chai.use(chaiHttp);
       .end((err, res) => {
         res.should.have.status(200);
         const firstQuestion = res.body[0];
-
         if (firstQuestion.answer === null) {
           (firstQuestion.dateAnswered === null).should.be.true;
           (firstQuestion.nameOfResponder === null).should.be.true;
