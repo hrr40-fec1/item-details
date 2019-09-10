@@ -91,7 +91,7 @@ button.answerIt:hover, button.seeAllQuestions:hover {
 }
 
 button.askAQuestion:hover {
-  background-color: rgb(180, 0, 0)
+  background-color: rgb(180, 0, 0);
 }
 
 button.seeAllQuestions {

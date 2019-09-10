@@ -9,7 +9,7 @@ function QuestionWithAnswer({ questionAsked }) {
   const relativeDateAnswered = moment(dateAnswered, moment.defaultFormat).fromNow();
 
   if (teamMember) {
-    var teamText = 'Team Member';
+    var teamText = '*Team Member*';
   } else {
     teamText = '';
   }

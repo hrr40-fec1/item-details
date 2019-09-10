@@ -146,7 +146,6 @@ for (let index = 1; index <= 200; index += 1) {
   }));
 }
 
-
 // Here, I'll insert them into the model.
 Questions.insertMany(questionsToSeed, (err) => {
   if (err) {
