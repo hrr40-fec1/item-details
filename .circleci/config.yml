@@ -3,6 +3,7 @@ jobs:
   build:
     docker:
       - image: circleci/node:9.11.1
+      - image: circleci/mongo:4.2.0
     steps:
       - checkout
       - restore_cache: 
@@ -14,7 +15,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
           paths:
             - node_modules
-      - run: 
-          name: test
-          command: npm run test
-      
+      - run: npm run test
+      - run: npm run mocha
