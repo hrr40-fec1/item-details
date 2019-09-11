@@ -1,5 +1,5 @@
 const faker = require('faker');
-const { ItemDetails, Questions, Sizing } = require('./index.js');
+const { ItemDetails, Questions, Sizing } = require('./index-test.js');
 
 //Below is for the Sizing collection. This clears the existing seeded database so it starts with a clean slate.
 Sizing.remove({}, (err) => {
