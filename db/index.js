@@ -63,7 +63,7 @@ mongoose.connect('mongodb://localhost/on-target', { useNewUrlParser: true });
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', () => {
-  console.log('Database and server are connected!');
+  console.log('Database/server are connected!');
 });
 
 module.exports.Sizing = Sizing;

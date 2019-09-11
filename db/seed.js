@@ -109,7 +109,7 @@ Questions.remove({}, (err) => {
 // match one of the item numbers, so I'll do that below.
 const getRandomItemId = () => faker.random.number({ min: 1, max: 100 });
 
-// Some questions wont yet have answers, and I will need to account for that.
+// Some questions won't yet have answers, and I will need to account for that.
 // In cases they don't, I'll factor that in to the other fields that depend on an
 // answer, and push null to those fields.
 

@@ -84,7 +84,7 @@ db.once('open', () => {
         }
       })
     }
-  })
+  });
 });
 
 module.exports.Sizing = Sizing;
