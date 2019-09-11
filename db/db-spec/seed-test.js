@@ -131,7 +131,6 @@ const questionsToSeed = [];
 
 for (let index = 1; index <= 200; index += 1) {
   const getAnswers = checkIfQuestionHasAnswer();
-
   questionsToSeed.push(new Questions({
     itemId: getRandomItemId(),
     question: faker.lorem.sentence(),

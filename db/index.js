@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const db = mongoose.connection;
 
 // Keeping in comments for future use.
@@ -59,14 +58,12 @@ const itemDetailsSchema = new mongoose.Schema({
 
 const ItemDetails = mongoose.model('ItemDetails', itemDetailsSchema);
 
-
 mongoose.connect('mongodb://localhost/on-target', { useNewUrlParser: true });
 
 db.on('error', console.error.bind(console, 'connection error:'));
 
 db.once('open', () => {
   console.log('Database and server are connected!');
-
 });
 
 module.exports.Sizing = Sizing;

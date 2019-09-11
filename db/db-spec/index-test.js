@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-
 const db = mongoose.connection;
 
 // Keeping in comments for future use.
@@ -86,7 +85,6 @@ db.once('open', () => {
       })
     }
   })
-
 });
 
 module.exports.Sizing = Sizing;
