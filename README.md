@@ -56,3 +56,12 @@ From within the root directory:
 ```sh
 npm run seed
 ```
+
+### Sample Screenshots
+
+#### Main Details
+
+![main-details](https://user-images.githubusercontent.com/35409260/68239151-55831080-ffbf-11e9-9c83-bd85b5b481d6.png)
+
+#### Q&A Section
+![q-and-a](https://user-images.githubusercontent.com/35409260/68239084-384e4200-ffbf-11e9-9584-b5e8d8c882a7.png)
